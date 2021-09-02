@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MarcaDto } from 'src/app/dto/marca-dto';
 import { VersionAutoDto } from 'src/app/dto/version-auto-dto';
 import { MercantilAndinaService } from '../../../services/mercantil-andina/mercantil-andina.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dato-vehiculo',
@@ -31,7 +31,7 @@ export class DatoVehiculoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private mercantilAndinaServ: MercantilAndinaService,
-    private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -64,9 +64,5 @@ export class DatoVehiculoComponent implements OnInit {
     });
   } 
 
-
-  showPreviousStep(): void {
-    this.router.navigate(['/datos-personales']);
-}
 }
 
