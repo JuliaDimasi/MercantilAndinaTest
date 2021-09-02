@@ -1,0 +1,61 @@
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="text-center">Datos de su vehículo</h3> <br>
+                <form class="datosVehiculo-form" [formGroup]="datosVehiculoForm">
+                    <div>
+                        <div class="form-group">
+                            <label>Marca*</label>
+                            <select class="form-control" formControlName="marca" (ngModelChange)="getModelos($event)">
+                                <option *ngFor="let marca of marcas" [ngValue]="marca.codigo">{{marca.desc}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Año*</label>
+                            <select type="number" class="form-control" formControlName="anio" value="2021">
+                                <option selected="selected" value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Modelo*</label>
+                            <select class="form-control" formControlName="modelo" (ngModelChange)="getVersiones($event)">
+                                <option *ngFor="let modelo of modelos" [ngValue]="modelo">{{modelo}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Versión*</label>
+                            <select class="form-control" formControlName="version"  >
+                                <option *ngFor="let version of versiones" >{{version.desc}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button [disabled]="!datosVehiculoForm.valid" type="submit" [routerLink]="['/coberturas']"
+                        class="btn btn-login float-right btn btn-info" >SIGUIENTE</button>
+                    <button [disabled]="!datosVehiculoForm.valid" type="submit" [routerLink]="['/datos-personales']"
+                        class="btn btn-login float-left btn btn-info">VOLVER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
