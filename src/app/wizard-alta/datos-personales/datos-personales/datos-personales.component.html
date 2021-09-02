@@ -1,0 +1,89 @@
+<section>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h3 class="text-center">Datos personales</h3> <br>
+				<form class="datosPers-form" [formGroup]="datosPersonaForm" (ngSubmit)="onSubmit()">
+					<div class="row">
+						<div class="form-group col-6">
+							<label>Apellido *</label>
+							<input type="text" class="form-control" formControlName="apellido">
+						</div>
+						<div class="form-group col-6">
+							<label>Nombre *</label>
+							<input type="text" class="form-control" formControlName="nombre">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-6">
+							<label>DNI *</label>
+							<input type="number" class="form-control" formControlName="dni">
+						</div>
+						<div class="form-group col-6">
+							<label>Email *</label>
+							<input type="text" class="form-control" formControlName="email">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-6">
+							<label>Celular *</label>
+							<input type="number" class="form-control" formControlName="celular">
+						</div>
+						<div class="form-group col-6">
+							<label>Teléfono *</label>
+							<input type="number" class="form-control" formControlName="telefono">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-4">
+							<label>Provincia</label>
+							<select class="form-control" formControlName="provincia"
+								(ngModelChange)="getMunicipios($event)">
+								<option *ngFor="let provincia of provincias" [ngValue]="provincia.id">
+									{{provincia.nombre}}</option>
+							</select>
+						</div>
+						<div class="form-group col-4">
+							<label>Ciudad</label>
+							<select class="form-control" formControlName="ciudad">
+								<option *ngFor="let ciudad of municipios">{{ciudad.nombre}}</option>
+							</select>
+						</div>
+						<div class="form-group col-4">
+							<label>Domicilio</label>
+							<input type="text" class="form-control" formControlName="domicilio">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label>Fecha de Nacimiento *</label>
+						<div class="input-group">
+							<input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
+								ngbDatepicker #d="ngbDatepicker">
+							<div class="input-group-append">
+								<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
+										xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-calendar" viewBox="0 0 16 16">
+										<path
+											d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+									</svg></button>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-6">
+							<label>Usuario *</label>
+							<input type="text" class="form-control" formControlName="usuario">
+						</div>
+						<div class="form-group col-6">
+							<label>Contraseña *</label>
+							<input type="password" class="form-control" formControlName="contrasenia">
+						</div>
+					</div>
+					<button [disabled]="!datosPersonaForm.valid" type="submit"
+						class="btn btn-login float-right btn btn-info" [routerLink]="['/dato-vehiculo']">SIGUIENTE</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
