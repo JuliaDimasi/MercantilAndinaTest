@@ -1,0 +1,15 @@
+#mercantilNav {
+  justify-content: center;
+  display: flex;
+
+  img{
+    width:25rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    img {
+      width: 21rem;
+      
+    }
+  }
+}
