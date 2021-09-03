@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PopUpResumenComponent } from 'src/app/pop-up-resumen/pop-up-resumen.component';
 
 @Component({
   selector: 'app-resumen',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
-
+  openPopUpConfirmed(){
+    this.modalService.open(PopUpResumenComponent,{
+      size: 'sm', backdrop: 'static'
+    })
+  }
 }
