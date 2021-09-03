@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { WizardComponent } from './wizard/wizard.component';
+import { PopUpResumenComponent } from './pop-up-resumen/pop-up-resumen.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     CoberturasComponent,
     ResumenComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    WizardComponent,
+    PopUpResumenComponent
   ],
   imports: [
     BrowserModule,
