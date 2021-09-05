@@ -12,7 +12,7 @@ export class PopUpResumenComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  cerrar(){
+  cerrar() {
     this.modal.close()
   }
 }
