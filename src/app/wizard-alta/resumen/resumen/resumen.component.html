@@ -38,10 +38,10 @@
                     <p><strong>Vehículo: </strong></p>
                 </div>
                 <div class="col-3">
-                    <p>${{resumen.datosVehiculo.marca}}</p>
-                    <p>${{resumen.datosVehiculo.anio}}</p>
-                    <p>${{resumen.datosVehiculo.modelo}}</p>
-                    <p>${{resumen.datosVehiculo.version}}</p>
+                    <p>{{resumen.datosVehiculo.marca}}</p>
+                    <p>{{resumen.datosVehiculo.anio}}</p>
+                    <p>{{resumen.datosVehiculo.modelo}}</p>
+                    <p>{{resumen.datosVehiculo.version}}</p>
                 </div>
             </div><br>
             <!--COBERTURA-->
@@ -63,7 +63,7 @@
                     <p>{{resumen.cobertura.producto}}</p>
                     <p>${{resumen.cobertura.costo}}</p>
                     <p>{{resumen.cobertura.granizo | yesNo}}</p>
-                    <p>${{resumen.cobertura.franquicia}}</p>
+                    <p>{{resumen.cobertura.franquicia}}</p>
                     <p>{{resumen.cobertura.puntaje}}</p>
                 </div>
                 <p>{{resumen.cobertura.descripcion}}</p>
