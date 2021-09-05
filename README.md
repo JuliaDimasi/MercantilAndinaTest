@@ -1,8 +1,30 @@
 # MercantilTest
 
+## Formulario Wizard representando el alta de un asegurado.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
 
 ## Development server
+
+* Se crea un servicio para cada una de las tres API's enviadas.
+
+* Se crean los DTO para modificar los tipos de datos del formato JSON correspondiente a cada API's, para luego reutilizarlos en los componentes.
+
+* Se crea la carpeta "wizard-alta" con los componentes de datos personales, datos de vehiculo, coberturas y resumen, y se modifican sus respectivos archivos HTML, CSS y TS.
+
+* Se crea el componente "wizard" en donde se guardan los datos de los componentes anteriores para luego generar la comunicación y el envío de datos entre ellos. 
+
+* Se crean los componentes "footer" y "navbar".
+
+* Se crean el componente "pop-up" para simular el envio de datos al final del formulario.
+
+* Se crean los pipes correspondientes. 
+
+## Vista previa
+
+![MercantilTest](https://user-images.githubusercontent.com/66536372/132143682-388f812b-211a-4d78-a1b9-7425efca49fc.png)
+
+
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
