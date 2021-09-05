@@ -9,5 +9,4 @@ export class CoberturaDto {
     descripcion: string;
     puntaje: number;
     granizo: boolean;
-
 }

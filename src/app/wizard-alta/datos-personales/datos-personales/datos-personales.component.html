@@ -1,65 +1,142 @@
 <section>
 	<div class="container">
-		<div class="row justify-content-center" style="height: 700px;">
+		<div class="row justify-content-center">
 			<div class="col-md-6">
-				<h3 class="text-center">Datos personales</h3> <br>
-				<form class="datosPers-form" [formGroup]="datosPersonaForm" (ngSubmit)="onSubmit()">
+				<h3 class="text-center">1. Datos personales</h3> <br>
+				<form class="datosPers-form" [formGroup]="datosPersonaForm">
 					<div class="row">
-						<div class="form-group col-6">
-							<label>Apellido *</label>
-							<input type="text" class="form-control" formControlName="apellido">
+						<!--APELLIDO-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Apellido</label>
+							<input type="text" class="form-control" formControlName="apellido" minlength="2"
+								maxlength="15" pattern="[a-zA-Z]+" title="Sólo letras"
+								[ngClass]="{'is-valid': datosPersonaForm.get('apellido').valid && datosPersonaForm.get('apellido').touched, 'is-invalid': datosPersonaForm.get('apellido').invalid && datosPersonaForm.get('apellido').touched}">
+							<div *ngIf="datosPersonaForm.get('apellido').touched && datosPersonaForm.get('apellido').dirty && datosPersonaForm.get('apellido').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('apellido').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
-						<div class="form-group col-6">
-							<label>Nombre *</label>
-							<input type="text" class="form-control" formControlName="nombre">
+						<!--NOMBRE-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Nombre</label>
+							<input type="text" class="form-control" formControlName="nombre" minlength="2"
+								maxlength="15" pattern="[a-zA-Z]+" title="Sólo letras"
+								[ngClass]="{'is-valid': datosPersonaForm.get('nombre').valid && datosPersonaForm.get('nombre').touched, 'is-invalid': datosPersonaForm.get('nombre').invalid && datosPersonaForm.get('nombre').touched}">
+							<div *ngIf="datosPersonaForm.get('nombre').touched && datosPersonaForm.get('nombre').dirty && datosPersonaForm.get('nombre').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('nombre').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-6">
-							<label>DNI *</label>
-							<input type="number" class="form-control" formControlName="dni">
+						<!--DNI-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>DNI</label>
+							<input type="text" class="form-control" formControlName="dni" minlength="7" maxlength="8"
+								pattern="\d*"
+								[ngClass]="{'is-valid': datosPersonaForm.get('dni').valid && datosPersonaForm.get('dni').touched, 'is-invalid': datosPersonaForm.get('dni').invalid && datosPersonaForm.get('dni').touched}">
+							<div *ngIf="datosPersonaForm.get('dni').touched && datosPersonaForm.get('dni').dirty && datosPersonaForm.get('dni').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('dni').errors.required">
+									*Mínimo 7 y máximo 8 digitos, no letras
+								</div>
+							</div>
 						</div>
-						<div class="form-group col-6">
-							<label>Email *</label>
-							<input type="text" class="form-control" formControlName="email">
+						<!--EMAIL-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Email</label>
+							<input type="text" class="form-control" formControlName="email"
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+								[ngClass]="{'is-valid': datosPersonaForm.get('email').valid && datosPersonaForm.get('email').touched, 'is-invalid': datosPersonaForm.get('email').invalid && datosPersonaForm.get('email').touched}">
+							<div *ngIf="datosPersonaForm.get('email').touched && datosPersonaForm.get('email').dirty && datosPersonaForm.get('email').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('email').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-6">
-							<label>Celular *</label>
-							<input type="number" class="form-control" formControlName="celular">
+						<!--CELULAR-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Celular</label>
+							<input type="number" class="form-control" formControlName="celular" pattern="\d*"
+								[ngClass]="{'is-valid': datosPersonaForm.get('celular').valid && datosPersonaForm.get('celular').touched, 'is-invalid': datosPersonaForm.get('celular').invalid && datosPersonaForm.get('celular').touched}">
+							<div *ngIf="datosPersonaForm.get('celular').touched && datosPersonaForm.get('celular').dirty && datosPersonaForm.get('celular').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('celular').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
-						<div class="form-group col-6">
-							<label>Teléfono *</label>
-							<input type="number" class="form-control" formControlName="telefono">
+						<!--TELEFONO-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Teléfono</label>
+							<input type="number" class="form-control" formControlName="telefono" pattern="\d*"
+								[ngClass]="{'is-valid': datosPersonaForm.get('telefono').valid && datosPersonaForm.get('telefono').touched, 'is-invalid': datosPersonaForm.get('telefono').invalid && datosPersonaForm.get('telefono').touched}">
+							<div *ngIf="datosPersonaForm.get('telefono').touched && datosPersonaForm.get('telefono').dirty && datosPersonaForm.get('telefono').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('telefono').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row">
+						<!--PROVINCIA-->
 						<div class="form-group col-4">
 							<label>Provincia</label>
 							<select class="form-control" formControlName="provincia"
-								(ngModelChange)="getMunicipios($event)">
+								(ngModelChange)="getMunicipios($event)"
+								[ngClass]="{'is-valid': datosPersonaForm.get('provincia').valid && datosPersonaForm.get('provincia').touched, 'is-invalid': datosPersonaForm.get('provincia').invalid && datosPersonaForm.get('provincia').touched}">
 								<option *ngFor="let provincia of provincias" [ngValue]="provincia.id">
 									{{provincia.nombre}}</option>
 							</select>
+							<div *ngIf="datosPersonaForm.get('provincia').touched && datosPersonaForm.get('provincia').dirty && datosPersonaForm.get('provincia').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('provincia').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
+						<!--CIUDAD-->
 						<div class="form-group col-4">
 							<label>Ciudad</label>
-							<select class="form-control" formControlName="ciudad">
-								<option *ngFor="let ciudad of municipios">{{ciudad.nombre}}</option>
+							<select class="form-control" formControlName="ciudad"
+								[ngClass]="{'is-valid': datosPersonaForm.get('ciudad').valid && datosPersonaForm.get('ciudad').touched, 'is-invalid': datosPersonaForm.get('ciudad').invalid && datosPersonaForm.get('ciudad').touched}">
+								<option [ngValue]="ciudad.id" *ngFor="let ciudad of municipios">{{ciudad.nombre}}
+								</option>
 							</select>
+							<div *ngIf="datosPersonaForm.get('ciudad').touched && datosPersonaForm.get('ciudad').dirty && datosPersonaForm.get('ciudad').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('ciudad').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
+						<!--DOMICILIO-->
 						<div class="form-group col-4">
 							<label>Domicilio</label>
-							<input type="text" class="form-control" formControlName="domicilio">
+							<input type="text" class="form-control" formControlName="domicilio"
+								[ngClass]="{'is-valid': datosPersonaForm.get('domicilio').valid && datosPersonaForm.get('domicilio').touched, 'is-invalid': datosPersonaForm.get('domicilio').invalid && datosPersonaForm.get('domicilio').touched}">
+							<div *ngIf="datosPersonaForm.get('domicilio').touched && datosPersonaForm.get('domicilio').dirty && datosPersonaForm.get('domicilio').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('domicilio').errors.required">
+									*Completar campo
+								</div>
+							</div>
 						</div>
 					</div>
-
+					<!--FECHA DE NACIMIENTO-->
 					<div class="form-group">
-						<label>Fecha de Nacimiento *</label>
+						<label>Fecha de Nacimiento</label>
 						<div class="input-group">
-							<input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
-								ngbDatepicker #d="ngbDatepicker">
+							<input class="form-control" placeholder="año-mes-día" formControlName="fechaNac"
+								name="fechaNac" ngbDatepicker #d="ngbDatepicker">
 							<div class="input-group-append">
 								<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
 										xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -71,17 +148,37 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="form-group col-6">
-							<label>Usuario *</label>
-							<input type="text" class="form-control" formControlName="usuario">
+						<!--USUARIO-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Usuario</label>
+							<input type="text" class="form-control" formControlName="usuario" minlength="3"
+								maxlength="30"
+								[ngClass]="{'is-valid': datosPersonaForm.get('usuario').valid && datosPersonaForm.get('usuario').touched, 'is-invalid': datosPersonaForm.get('usuario').invalid && datosPersonaForm.get('usuario').touched}">
+							<div *ngIf="datosPersonaForm.get('usuario').touched && datosPersonaForm.get('usuario').dirty && datosPersonaForm.get('usuario').errors"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
+									*Mínimo 3 y máximo 30 caracteres
+								</div>
+								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
+									El usuario ya existe.
+								</div>
+							</div>
 						</div>
-						<div class="form-group col-6">
-							<label>Contraseña *</label>
-							<input type="password" class="form-control" formControlName="contrasenia">
+						<!--CONTRASEÑA-->
+						<div class="form-group col-sm-12 col-md-6">
+							<label>Contraseña</label>
+							<input type="password" class="form-control" formControlName="contrasenia" minlength="8"
+								[ngClass]="{'is-valid': datosPersonaForm.get('contrasenia').valid && datosPersonaForm.get('contrasenia').touched, 'is-invalid': datosPersonaForm.get('contrasenia').invalid && datosPersonaForm.get('contrasenia').touched}">
+							<div *ngIf="datosPersonaForm.get('contrasenia').touched && datosPersonaForm.get('contrasenia').dirty"
+								class="with-errors errors">
+								<div [hidden]="!datosPersonaForm.get('contrasenia').errors.required">
+									*Usar letras mayúscula y minúscula, números, mínimo 8 caracteres
+								</div>
+							</div>
 						</div>
 					</div>
 					<button [disabled]="!datosPersonaForm.valid" type="submit"
-						class="btn btn-login float-right btn btn-info" [routerLink]="['/dato-vehiculo']">SIGUIENTE</button>
+						class="btn btn-login float-right btn btn-info" (click)="siguiente()">SIGUIENTE</button>
 				</form>
 			</div>
 		</div>

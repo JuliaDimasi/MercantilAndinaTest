@@ -1,126 +1,78 @@
-<div class="invoice-box">
-    <table>
-        <tr class="top">
-            <td colspan="2" style="padding-left: 0%; padding-right: 0%;">
-                <table>
-                    <tr>
-                        <td class="title">
-                            <img src="../assets/imagenes/resumen-logo-mercantil-andina.jpg" alt="Mercantil"
-                                style="width: 100%;object-fit: cover;height: 100px;" />
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+<div class="resumen">
+    <div>
+        <img src="../assets/imagenes/resumen-logo-mercantil-andina.jpg" alt="Mercantil"
+            style="width: 100%;object-fit: cover;height: 100px;" />
         <!--DATOS PERSONALES-->
-        <table>
-            <tr class="heading">
-                <td>Datos personales</td>
-            </tr>
+        <div><br>
+            <div class="heading">
+                <h6><strong>Datos personales</strong></h6>
+            </div>
+            <hr>
             <div class="row">
                 <div class="col-6">
-                    <tr class="item">
-                        <td>Apellido</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Nombre</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>DNI</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Email</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Fecha de nacimiento</td>
-                        <td>Dimasi</td>
-                    </tr>
+                    <p><strong>Apellido: </strong>{{resumen.datosPersonales.apellido}}</p>
+                    <p><strong>Nombre: </strong>{{resumen.datosPersonales.nombre}}</p>
+                    <p><strong>Dni: </strong>{{resumen.datosPersonales.dni}}</p>
+                    <p><strong>Email: </strong>{{resumen.datosPersonales.email}}</p>
+                    <p><strong>Fecha de nacimiento: </strong>
+                        {{resumen.datosPersonales.fechaNac.day}}/{{resumen.datosPersonales.fechaNac.month }}/{{resumen.datosPersonales.fechaNac.year }}</p>
                 </div>
                 <div class="col-6">
-                    <tr class="item">
-                        <td>Celular</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Teléfono</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Provincia</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Ciudad</td>
-                        <td>Dimasi</td>
-                    </tr>
-                    <tr class="item">
-                        <td>Domicilio</td>
-                        <td>Dimasi</td>
-                    </tr>
+                    <p><strong>Celular: </strong>{{resumen.datosPersonales.celular}}</p>
+                    <p><strong>Teléfono: </strong>{{resumen.datosPersonales.telefono}}</p>
+                    <p><strong>Provincia: </strong>{{resumen.datosPersonales.provincia}}</p>
+                    <p><strong>Ciudad: </strong>{{resumen.datosPersonales.ciudad}}</p>
+                    <p><strong>Domicilio: </strong>{{resumen.datosPersonales.domicilio}}</p>
                 </div>
-            </div> <br>
+            </div><br>
             <!--VEHICULO-->
-            <tr class="heading">
-                <td>Datos de vehículos</td>
-            </tr>
-            <tr class="item">
-                <td>Marca</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Año</td>
-                <td>$75.00</td>
-            </tr>
-            <tr class="item last">
-                <td>Modelo</td>
-                <td>$10.00</td>
-            </tr>
-            <tr class="item last">
-                <td>Vehículo</td>
-                <td>$10.00</td>
-            </tr> <br>
+            <div class="heading">
+                <h6><strong>Datos de vehículos</strong></h6>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-9">
+                    <p><strong>Marca: </strong> </p>
+                    <p><strong>Año: </strong></p>
+                    <p><strong>Modelo: </strong></p>
+                    <p><strong>Vehículo: </strong></p>
+                </div>
+                <div class="col-3">
+                    <p>${{resumen.datosVehiculo.marca}}</p>
+                    <p>${{resumen.datosVehiculo.anio}}</p>
+                    <p>${{resumen.datosVehiculo.modelo}}</p>
+                    <p>${{resumen.datosVehiculo.version}}</p>
+                </div>
+            </div><br>
             <!--COBERTURA-->
-            <tr class="heading">
-                <td>Cobertura</td>
-            </tr>
-            <tr class="item">
-                <td>Código</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Producto</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Costo</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Granizo</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Franquicia</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Puntaje</td>
-                <td>$300.00</td>
-            </tr>
-            <tr class="item">
-                <td>Descripción</td>
-                <td>$300.00</td>
-            </tr> <br>
-        </table>
-        <tr class="confirmarDatos">
-            <td>
-                <button type="submit" class="btn btn-login float-right btn btn-info" (click)="openPopUpConfirmed()">ENVIAR</button>
-                <button type="submit" class="btn btn-login float-left btn btn-info">VOLVER</button>
-            </td>
-        </tr>
-    </table>
-</div>
+            <div class="heading">
+                <h6><strong>Cobertura</strong></h6>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-9">
+                    <p><strong>Cobertura: </strong> </p>
+                    <p><strong>Código: </strong></p>
+                    <p><strong>Producto: </strong></p>
+                    <p><strong>Granizo: </strong></p>
+                    <p><strong>Franquicia: </strong></p>
+                    <p><strong>Puntaje: </strong></p>
+                </div>
+                <div class="col-3">
+                    <p>{{resumen.cobertura.codigoProducto}}</p>
+                    <p>{{resumen.cobertura.producto}}</p>
+                    <p>${{resumen.cobertura.costo}}</p>
+                    <p>{{resumen.cobertura.granizo | yesNo}}</p>
+                    <p>${{resumen.cobertura.franquicia}}</p>
+                    <p>{{resumen.cobertura.puntaje}}</p>
+                </div>
+                <p>{{resumen.cobertura.descripcion}}</p>
+                <br>
+            </div>
+            <div class="confirmarDatos">
+                <button type="submit" class="btn btn-login float-right btn btn-info"
+                    (click)="openPopUpConfirmed()">ENVIAR</button>
+                <button type="submit" class="btn btn-login float-left btn btn-info" (click)="volver()">VOLVER</button>
+            </div>
+        </div>
+    </div>

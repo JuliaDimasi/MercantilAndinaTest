@@ -1,21 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
-.container{
-    background-color: #eaecf4;
+.container {
+  background-color: #eaecf4;
+  border: 2px solid #eaecf4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
 
-    h3{
-        font-family: "Roboto", "sans-serif";
-        font-size: 1.5rem;
-        font-weight: bold;
-        padding-top: 3%;  
-    }
-    
-    
-    label{
-        color: #112968;
-        font-family: "Roboto", "sans-serif";
-        font-weight: bold;
+  h3 {
+    font-family: "Roboto", "sans-serif";
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 3%;
+  }
 
-}
+
+  label {
+    color: #112968;
+    font-family: "Roboto", "sans-serif";
+    font-weight: bold;
+
+  }
 
 }

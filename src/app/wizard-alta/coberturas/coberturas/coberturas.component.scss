@@ -1,13 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
-.container{
-    background-color: #eaecf4;
-     
-    h5{
-        color: #112968;
-        font-family: "Roboto", "sans-serif";
-        font-weight: bold;
+.container {
+  background-color: #eaecf4;
+  border: 2px solid #eaecf4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
 
-}
 
+  h6 {
+    color: #112968;
+    font-weight: bold;
+    text-transform: uppercase;
+
+  }
+
+  //HOVER
+  .card {
+    background: -moz-linear-gradient(-45deg,
+        #eaecf4 50%,
+        #bad1e488 100%);
+    background: -webkit-linear-gradient(-45deg,
+        #eaecf4 50%,
+        #bad1e488 100%);
+    background: linear-gradient(135deg,
+        #eaecf4 50%,
+        #bad1e488 100%);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    max-width: 100vw;
+    max-height: 100vh;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover {
+      background-position: 100% 100%;
+
+    }
+  }
+
+  .card-text {
+    color: #0f0f0f;
+  }
 }

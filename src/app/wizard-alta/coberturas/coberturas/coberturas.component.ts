@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CoberturaDto } from 'src/app/dto/cobertura-dto';
 import { MockMercantilAndinaService } from '../../../services/mock-mercantil-andina/mock-mercantil-andina.service';
 
@@ -9,6 +9,9 @@ import { MockMercantilAndinaService } from '../../../services/mock-mercantil-and
 })
 export class CoberturasComponent implements OnInit {
 
+  @Output() guardarCobertura = new EventEmitter<any>();
+  @Output() volverDatosVehiculo = new EventEmitter<any>();
+  
   usuarios: Boolean;
   coberturas: CoberturaDto[];
 
@@ -17,6 +20,7 @@ export class CoberturasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getCobertura();
   }
 
   existeUsuario(usuario: String) {
@@ -32,5 +36,15 @@ export class CoberturasComponent implements OnInit {
       console.log(this.coberturas)
     });
   }
+
+  seleccionar(cobertura:CoberturaDto){
+    console.log(cobertura)
+    this.guardarCobertura.emit(cobertura);
+  }
+
+  volver() {
+    this.volverDatosVehiculo.emit({});
+  }
+
 
 }

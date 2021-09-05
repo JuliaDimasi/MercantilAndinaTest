@@ -6,7 +6,7 @@ export const environment = {
   production: false
 };
 
-export const baseApiMercantilAndina ="https://servicios.qamercantilandina.com.ar/api/v1";
+export const baseApiMercantilAndina ="https://servicios.mercantilandina.com.ar/api/v1";
 export const baseApiMockMercantilAndina ="https://servicios.qamercantilandina.com.ar/api_mock_frontend/v1";
 export const baseApiGeoRef ="https://apis.datos.gob.ar/georef/api";
 

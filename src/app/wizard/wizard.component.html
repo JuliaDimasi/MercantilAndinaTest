@@ -1,0 +1,35 @@
+<!--CAMBIOS STATES 1 2 3 4 -->
+<div class="row estados">
+    <div class="col-3 d-flex justify-content-center">
+        <div [ngClass]="{'paso': 1 == 1,'activo':state == 1,'finalizado':state > 1}">
+            <h5>1</h5>
+        </div>
+    </div>
+    <div class="col-3 d-flex justify-content-center">
+        <div [ngClass]="{'paso': 1 == 1,'activo':state == 2, 'inactivo':state < 2, 'finalizado':state > 2}">
+            <h5>2</h5>
+        </div>
+    </div>
+    <div class="col-3 d-flex justify-content-center">
+        <div [ngClass]="{'paso': 1 == 1,'activo':state == 3,'inactivo':state < 3,'finalizado':state > 3}">
+            <h5>3</h5>
+        </div>
+    </div>
+    <div class="col-3 d-flex justify-content-center">
+        <div [ngClass]="{'paso': 1 == 1,'activo':state == 4,'inactivo':state < 4,'finalizado':state > 4}">
+            <h5>4</h5>
+        </div>
+    </div>
+</div>
+
+<app-datos-personales *ngIf="state == 1" (guardarDatosPersonales)="saveDatosPersonales($event)"
+    [datosPersona]="formDatosPersonales">
+</app-datos-personales>
+<app-dato-vehiculo *ngIf="state == 2" (guardarDatosVehiculo)="saveDatosVehiculo($event)"
+    (volverDatosPersonales)="volverPersonales($event)" [datosVehiculo]="formDatosVehiculo">
+</app-dato-vehiculo>
+<app-coberturas *ngIf="state == 3" (guardarCobertura)="saveCobertura($event)"
+    (volverDatosVehiculo)="volverVehiculo($event)">
+</app-coberturas>
+<app-resumen *ngIf="state == 4" (volverCobertura)="volverCobertura($event)" [resumen]="resumen">
+</app-resumen>

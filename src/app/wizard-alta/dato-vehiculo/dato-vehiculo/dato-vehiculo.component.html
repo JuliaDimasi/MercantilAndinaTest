@@ -2,19 +2,29 @@
     <div class="container">
         <div class="row justify-content-center" style="height: 700px;">
             <div class="col-md-6">
-                <h3 class="text-center">Datos de su vehículo</h3> <br>
-                <form class="datosVehiculo-form" [formGroup]="datosVehiculoForm" (ngSubmit)="onSubmit()" style="height: 500px;">
+                <h3 class="text-center">2. Datos de su vehículo</h3> <br>
+                <form class="datosVehiculo-form" [formGroup]="datosVehiculoForm" style="height: 500px;">
                     <div>
+                        <!--MARCA-->
                         <div class="form-group">
-                            <label>Marca*</label>
-                            <select class="form-control" formControlName="marca" (ngModelChange)="getModelos($event)">
+                            <label>Marca</label>
+                            <select class="form-control" formControlName="marca" (ngModelChange)="getModelos()"
+                                [ngClass]="{'is-valid': datosVehiculoForm.get('marca').valid && datosVehiculoForm.get('marca').touched, 'is-invalid': datosVehiculoForm.get('marca').invalid && datosVehiculoForm.get('marca').touched}">
                                 <option *ngFor="let marca of marcas" [ngValue]="marca.codigo">{{marca.desc}}</option>
                             </select>
+                            <div *ngIf="datosVehiculoForm.get('marca').touched && datosVehiculoForm.get('marca').dirty && datosVehiculoForm.get('marca').errors"
+                                class="with-errors errors">
+                                <div [hidden]="!datosVehiculoForm.get('marca').errors.required">
+                                    *Completar campo
+                                </div>
+                            </div>
                         </div>
+                        <!--AÑO-->
                         <div class="form-group">
-                            <label>Año*</label>
-                            <select type="number" class="form-control" formControlName="anio" value="2021">
-                                <option selected="selected" value="2021">2021</option>
+                            <label>Año</label>
+                            <select class="form-control" formControlName="anio" id="anio" (ngModelChange)="getModelos()"
+                                [ngClass]="{'is-valid': datosVehiculoForm.get('anio').valid && datosVehiculoForm.get('anio').touched, 'is-invalid': datosVehiculoForm.get('anio').invalid && datosVehiculoForm.get('anio').touched}">
+                                <option value="2021">2021</option>
                                 <option value="2020">2020</option>
                                 <option value="2019">2019</option>
                                 <option value="2018">2018</option>
@@ -36,24 +46,46 @@
                                 <option value="2002">2002</option>
                                 <option value="2001">2001</option>
                             </select>
+                            <div *ngIf="datosVehiculoForm.get('anio').touched && datosVehiculoForm.get('anio').dirty && datosVehiculoForm.get('anio').errors"
+                                class="with-errors errors">
+                                <div [hidden]="!datosVehiculoForm.get('anio').errors.required">
+                                    *Completar campo
+                                </div>
+                            </div>
                         </div>
+                        <!--MODELO-->
                         <div class="form-group">
-                            <label>Modelo*</label>
-                            <select class="form-control" formControlName="modelo" (ngModelChange)="getVersiones($event)">
+                            <label>Modelo</label>
+                            <select class="form-control" formControlName="modelo" (ngModelChange)="getVersiones()"
+                                [ngClass]="{'is-valid': datosVehiculoForm.get('modelo').valid && datosVehiculoForm.get('modelo').touched, 'is-invalid': datosVehiculoForm.get('modelo').invalid && datosVehiculoForm.get('modelo').touched}">
                                 <option *ngFor="let modelo of modelos" [ngValue]="modelo">{{modelo}}</option>
                             </select>
+                            <div *ngIf="datosVehiculoForm.get('modelo').touched && datosVehiculoForm.get('modelo').dirty && datosVehiculoForm.get('modelo').errors"
+                                class="with-errors errors">
+                                <div [hidden]="!datosVehiculoForm.get('modelo').errors.required">
+                                    *Completar campo
+                                </div>
+                            </div>
                         </div>
+                        <!--VERSION-->
                         <div class="form-group">
-                            <label>Versión*</label>
-                            <select class="form-control" formControlName="version"  >
-                                <option *ngFor="let version of versiones" >{{version.desc}}</option>
+                            <label>Versión</label>
+                            <select class="form-control" formControlName="version"
+                                [ngClass]="{'is-valid': datosVehiculoForm.get('version').valid && datosVehiculoForm.get('version').touched, 'is-invalid': datosVehiculoForm.get('version').invalid && datosVehiculoForm.get('version').touched}">
+                                <option *ngFor="let version of versiones">{{version.desc}}</option>
                             </select>
+                            <div *ngIf="datosVehiculoForm.get('version').touched && datosVehiculoForm.get('version').dirty && datosVehiculoForm.get('version').errors"
+                                class="with-errors errors">
+                                <div [hidden]="!datosVehiculoForm.get('version').errors.required">
+                                    *Completar campo
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <button [disabled]="!datosVehiculoForm.valid" type="submit" 
-                        class="btn btn-login float-right btn btn-info" [routerLink]="['/coberturas']">SIGUIENTE</button>
-                    <button [disabled]="!datosVehiculoForm.valid" type="submit" 
-                        class="btn btn-login float-left btn btn-info" [routerLink]="['/datos-personales']">VOLVER</button>
+                    <button [disabled]="!datosVehiculoForm.valid" type="submit"
+                        class="btn btn-login float-right btn btn-info" (click)="siguiente()">SIGUIENTE</button>
+                    <button type="submit" class="btn btn-login float-left btn btn-info"
+                        (click)="volver()">VOLVER</button>
                 </form>
             </div>
         </div>

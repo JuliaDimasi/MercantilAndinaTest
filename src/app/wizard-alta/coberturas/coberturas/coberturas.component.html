@@ -1,62 +1,45 @@
 <div class="container">
-<div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 justify-content-center mt-4" style="height: 600px;">
-    <div class="col mb-2">
-        <div class="card">
-            <div class="card-header text-center">
-                <h5 class="card-title">Elegí tu mejor plan</h5>
-            </div>
-            <div class="card-body text-center">
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Código</h5>
-                    </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
-                    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 mb-4 " *ngFor="let cobertura of coberturas">
+            <div class="card" style="margin-top: 24px;">
+                <div class="card-header text-center">
+                    <h6 class="card-title">{{cobertura.titulo}}</h6>
+                    <p class="text">{{cobertura.texto}}</p>
                 </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Producto:</h5>
+                <div class="card-body text-center">
+                    <div class="row">
+                        <div class="col-4 col-md-4 ">
+                            <p class="card-text">Código: {{cobertura.codigoProducto}}</p>
+                        </div>
+                        <div class="col-4 col-md-4 ">
+                            <p class="card-text">Producto: {{cobertura.producto}}</p>
+                        </div>
+                        <div class="col-4 col-md-4 ">
+                            <p class="card-text">Costo: {{cobertura.costo}}</p>
+                        </div>
                     </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
+                    <div class="row">
+                        <div class="col-4 col-md-4 text-start">
+                            <p class="card-text">Granizo: {{cobertura.granizo | yesNo}}</p>
+                        </div>
+                        <div class="col-4 col-md-4 text-start">
+                            <p class="card-text">Franquicia: {{cobertura.franquicia}}</p>
+                        </div>
+                        <div class="col-4 col-md-4 ">
+                            <p class="card-text">Puntaje: {{cobertura.puntaje}} </p>
+                        </div>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 justify-content-left">
+                            <p class="card-text">{{cobertura.descripcion}}</p>
+                        </div>
+                    </div><br>
+                    <button class="btn btn-login float-center btn btn-info"
+                        (click)="seleccionar(cobertura)">SELECCIONAR</button>
                 </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Costo:</h5>
-                    </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Descripción:</h5>
-                    </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Franquicia:</h5>
-                    </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6 col-md-4 text-start">
-                        <h5 class="card-title">Granizo:</h5>
-                    </div>
-                    <div class="col-6 col-md-8 text-uppercase">
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-                
             </div>
         </div>
+        <button type="submit" class="btn btn-login float-left btn btn-info" (click)="volver()">VOLVER</button>
     </div>
-</div>
 </div>

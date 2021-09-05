@@ -1,15 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
 #mercantilNav {
   justify-content: center;
   display: flex;
 
-  img{
-    width:30rem;
+  img {
+    width: 30rem;
   }
 
   @media screen and (max-width: 480px) {
     img {
       width: 21rem;
-      
+
     }
+  }
+
+}
+
+.titulo {
+  justify-content: center;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #0186a3;
+}
+
+@media screen and (max-width: 480px) {
+  .titulo {
+    font-size: 20px;
+  }
+}
+
+.slogan {
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  color: rgb(26, 25, 24);
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .slogan {
+    font-size: 15px;
   }
 }
