@@ -159,9 +159,6 @@
 								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
 									*Mínimo 3 y máximo 30 caracteres
 								</div>
-								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
-									El usuario ya existe.
-								</div>
 							</div>
 						</div>
 						<!--CONTRASEÑA-->
@@ -171,7 +168,7 @@
 								[ngClass]="{'is-valid': datosPersonaForm.get('contrasenia').valid && datosPersonaForm.get('contrasenia').touched, 'is-invalid': datosPersonaForm.get('contrasenia').invalid && datosPersonaForm.get('contrasenia').touched}">
 							<div *ngIf="datosPersonaForm.get('contrasenia').touched && datosPersonaForm.get('contrasenia').dirty"
 								class="with-errors errors">
-								<div [hidden]="!datosPersonaForm.get('contrasenia').errors.required">
+								<div [hidden]="!datosPersonaForm.get('contrasenia').errors">
 									*Usar letras mayúscula y minúscula, números, mínimo 8 caracteres
 								</div>
 							</div>
