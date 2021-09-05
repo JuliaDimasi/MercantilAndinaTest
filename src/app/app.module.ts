@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { WizardComponent } from './wizard/wizard.component';
 import { PopUpResumenComponent } from './pop-up-resumen/pop-up-resumen.component';
+import { YesNoPipe } from './yes-no.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PopUpResumenComponent } from './pop-up-resumen/pop-up-resumen.component
     NavbarComponent,
     FooterComponent,
     WizardComponent,
-    PopUpResumenComponent
+    PopUpResumenComponent,
+    YesNoPipe
   ],
   imports: [
     BrowserModule,

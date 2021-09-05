@@ -4,11 +4,12 @@ import { CoberturasComponent } from './wizard-alta/coberturas/coberturas/cobertu
 import { DatoVehiculoComponent } from './wizard-alta/dato-vehiculo/dato-vehiculo/dato-vehiculo.component';
 import { DatosPersonalesComponent } from './wizard-alta/datos-personales/datos-personales/datos-personales.component';
 import { ResumenComponent } from './wizard-alta/resumen/resumen/resumen.component';
+import { WizardComponent } from './wizard/wizard.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: DatosPersonalesComponent,
+    path: '', component: WizardComponent,
   },
   {
     path: 'datos-personales', component: DatosPersonalesComponent,
