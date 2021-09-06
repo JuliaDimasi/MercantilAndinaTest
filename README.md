@@ -20,7 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * Se crean los pipes correspondientes. 
 
-## Vista previa
+## Reference image
 
 ![Captura de pantalla 2021-09-05 201531](https://user-images.githubusercontent.com/66536372/132143974-22eb3264-08a8-4b8d-bc5c-a2b451f24369.png)
 
