@@ -25,7 +25,7 @@ export class DatosPersonalesComponent implements OnInit {
     celular: new FormControl('', [Validators.required]),
     telefono: new FormControl('', [Validators.required]),
     usuario: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-    contrasenia: new FormControl('', [Validators.required,  Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z\d$@$!%*?&].{8,}')]),
+    contrasenia: new FormControl('', [Validators.required]),
     fechaNac: new FormControl('', []),
     provincia: new FormControl('', []),
     ciudad: new FormControl('', []),
@@ -101,7 +101,22 @@ export class DatosPersonalesComponent implements OnInit {
               notUnique: true
           });
       }
-
     })
   }
+
+  validDate() {
+    const hoy = new Date();
+    const cumpleanos = new Date(this.datosPersonaForm.controls.fechaNac.value);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    const m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    if ((edad < 18) || (edad >= 99))  {
+      this.datosPersonaForm.controls.fechaNac.setErrors({
+            edadInvalid: true
+        });
+    }
+}
 }
