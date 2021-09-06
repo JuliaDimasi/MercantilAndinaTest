@@ -4,6 +4,7 @@ import { MunicipioDto } from 'src/app/dto/municipio-dto';
 import { ProvinciaDto } from 'src/app/dto/provincia-dto';
 import { GeoRefService } from '../../../services/geo-ref/geo-ref.service';
 import { PersonaDto } from '../../../dto/persona-dto';
+import { MockMercantilAndinaService } from 'src/app/services/mock-mercantil-andina/mock-mercantil-andina.service';
 
 @Component({
   selector: 'app-datos-personales',
@@ -31,7 +32,7 @@ export class DatosPersonalesComponent implements OnInit {
     domicilio: new FormControl('', []),
   });
 
-  
+  existeUsuario:Boolean = true;
   provincias: ProvinciaDto[] = [];
   municipios: MunicipioDto[] = [];
 
@@ -39,6 +40,7 @@ export class DatosPersonalesComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private geoServ: GeoRefService,
+    private mockServ: MockMercantilAndinaService,
   ) {
     
    }
@@ -88,5 +90,18 @@ export class DatosPersonalesComponent implements OnInit {
       { "formDatosPersonales":this.datosPersonaForm,
         "personaResumen":personaResumen});
     
+  }
+
+  usuarioExistente(){
+    let usuario = this.datosPersonaForm.value.usuario;
+    this.mockServ.existeUsuario(usuario).subscribe(res=>{ 
+      this.existeUsuario = res;
+      if (this.existeUsuario) {
+          this.datosPersonaForm.controls.usuario.setErrors({
+              notUnique: true
+          });
+      }
+
+    })
   }
 }

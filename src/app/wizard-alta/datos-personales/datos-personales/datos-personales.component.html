@@ -151,14 +151,21 @@
 						<!--USUARIO-->
 						<div class="form-group col-sm-12 col-md-6">
 							<label>Usuario</label>
-							<input type="text" class="form-control" formControlName="usuario" minlength="3"
+							<input type="text" class="form-control" formControlName="usuario" minlength="3" 
+								(ngModelChange)="usuarioExistente()"
 								maxlength="30"
 								[ngClass]="{'is-valid': datosPersonaForm.get('usuario').valid && datosPersonaForm.get('usuario').touched, 'is-invalid': datosPersonaForm.get('usuario').invalid && datosPersonaForm.get('usuario').touched}">
-							<div *ngIf="datosPersonaForm.get('usuario').touched && datosPersonaForm.get('usuario').dirty && datosPersonaForm.get('usuario').errors"
+							<div *ngIf="datosPersonaForm.get('usuario').touched &&
+										datosPersonaForm.get('usuario').dirty &&
+										datosPersonaForm.get('usuario').errors"
 								class="with-errors errors">
 								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
 									*Mínimo 3 y máximo 30 caracteres
 								</div>
+								
+							</div>
+							<div [hidden]="!datosPersonaForm.get('usuario').errors.notUnique">
+								El usuario ya existe.
 							</div>
 						</div>
 						<!--CONTRASEÑA-->

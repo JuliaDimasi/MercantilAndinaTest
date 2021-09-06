@@ -18,7 +18,7 @@ export class MockMercantilAndinaService {
 
 
   existeUsuario(usuario: String): Observable<Boolean> {
-    return this.http.get<Boolean>(this.baseApi + "/usuarios/" + usuario);
+    return this.http.get<Boolean>(this.baseApi + "/usuarios?nombre=" + usuario);
   }
 
 
