@@ -135,8 +135,10 @@
 					<div class="form-group">
 						<label>Fecha de Nacimiento</label>
 						<div class="input-group">
-							<input class="form-control" placeholder="año-mes-día" formControlName="fechaNac"
-								name="fechaNac" ngbDatepicker #d="ngbDatepicker">
+							<input class="form-control" placeholder="año-mes-día" [minDate]="{year: 1922, month: 1, day: 1}" [maxDate]="{year: 2003, month: 1, day: 1}" 
+							 formControlName="fechaNac" (ngModelChange)="validDate()"
+								name="fechaNac" ngbDatepicker #d="ngbDatepicker"
+								[ngClass]="{'is-valid': datosPersonaForm.get('fechaNac').valid && datosPersonaForm.get('fechaNac').touched, 'is-invalid': datosPersonaForm.get('fechaNac').invalid && datosPersonaForm.get('fechaNac').touched}">
 							<div class="input-group-append">
 								<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
 										xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -145,6 +147,12 @@
 											d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
 									</svg></button>
 							</div>
+							<div *ngIf="datosPersonaForm.get('fechaNac').errors && (datosPersonaForm.get('fechaNac').dirty || datosPersonaForm.get('fechaNac').touched)"
+                    			class="with-errors errors">
+                    			<div [hidden]="!datosPersonaForm.get('fechaNac').errors.edadInvalid">
+                        			Debe tener entre 18 y 99 años.
+                    			</div>
+            				</div>
 						</div>
 					</div>
 					<div class="row">
@@ -162,11 +170,11 @@
 								<div [hidden]="!datosPersonaForm.get('usuario').errors.required">
 									*Mínimo 3 y máximo 30 caracteres
 								</div>
-								
+								<div [hidden]="!datosPersonaForm.get('usuario').errors.notUnique">
+									El usuario ya existe.
+								</div>
 							</div>
-							<div [hidden]="!datosPersonaForm.get('usuario').errors.notUnique">
-								El usuario ya existe.
-							</div>
+							
 						</div>
 						<!--CONTRASEÑA-->
 						<div class="form-group col-sm-12 col-md-6">
